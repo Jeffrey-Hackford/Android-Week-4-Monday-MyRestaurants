@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.epicodus.myrestaurant.R;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
