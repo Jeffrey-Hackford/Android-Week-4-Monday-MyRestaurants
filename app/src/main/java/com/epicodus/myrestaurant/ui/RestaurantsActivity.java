@@ -1,4 +1,4 @@
-package com.epicodus.myrestaurant;
+package com.epicodus.myrestaurant.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.epicodus.myrestaurant.R;
+import com.epicodus.myrestaurant.models.Restaurant;
+import com.epicodus.myrestaurant.services.YelpService;
 
 import java.io.IOException;
 import java.util.ArrayList;

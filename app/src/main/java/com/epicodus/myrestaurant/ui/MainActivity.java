@@ -1,4 +1,4 @@
-package com.epicodus.myrestaurant;
+package com.epicodus.myrestaurant.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
