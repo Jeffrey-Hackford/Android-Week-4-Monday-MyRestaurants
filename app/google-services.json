@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1088163712781",
+    "firebase_url": "https://myrestaurant-dbec2.firebaseio.com",
+    "project_id": "myrestaurant-dbec2",
+    "storage_bucket": "myrestaurant-dbec2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088163712781:android:0f5522767ed28e78",
+        "android_client_info": {
+          "package_name": "com.epicodus.myrestaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088163712781-qimafcrt8qielnhrir2a71oqtocrcs4n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.myrestaurant",
+            "certificate_hash": "96E002F57837EDA9ED314789587826C71C52EBC0"
+          }
+        },
+        {
+          "client_id": "1088163712781-ftkgtpprp6poukng48ckfq4ibunee3f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbc0Cds-CHUChSTlGQfdfrMY0ipARQN98"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088163712781-ftkgtpprp6poukng48ckfq4ibunee3f3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
