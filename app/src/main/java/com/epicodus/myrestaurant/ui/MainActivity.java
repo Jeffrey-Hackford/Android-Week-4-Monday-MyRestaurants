@@ -34,11 +34,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+    @Bind(R.id.savedRestaurantsButton) Button mSavedRestaurantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        mSearchedLocationReference = FirebaseDatabase.getInstance().getReference().child((Constants.FIREBASE_CHILD_SEARCHED_LOCATION));
+        mSearchedLocationReference = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
+
+
 
         mSearchedLocationReferenceListener = mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mEditor = mSharedPreferences.edit();
 
         mFindRestaurantsButton.setOnClickListener(this);
+        mSavedRestaurantsButton.setOnClickListener(this);
     }
                 @Override
                 public void onClick(View v){
@@ -78,6 +82,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         intent.putExtra("location", location);
                         startActivity(intent);
 
+                    }
+
+                    if (v == mSavedRestaurantsButton) {
+                        Intent intent = new Intent(MainActivity.this, SavedRestaurantListActivity.class);
+                        startActivity(intent);
                     }
                 }
 
