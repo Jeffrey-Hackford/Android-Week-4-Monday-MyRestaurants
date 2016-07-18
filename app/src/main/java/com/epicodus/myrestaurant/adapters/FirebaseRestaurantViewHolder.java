@@ -1,9 +1,12 @@
 package com.epicodus.myrestaurant.adapters;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Parcel;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,6 +15,8 @@ import com.epicodus.myrestaurant.Constants;
 import com.epicodus.myrestaurant.R;
 import com.epicodus.myrestaurant.models.Restaurant;
 import com.epicodus.myrestaurant.ui.RestaurantDetailActivity;
+import com.epicodus.myrestaurant.util.ItemTouchHelperAdapter;
+import com.epicodus.myrestaurant.util.ItemTouchHelperViewHolder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +31,7 @@ import java.util.ArrayList;
 /**
  * Created by Guest on 7/11/16.
  */
-public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
     public ImageView mRestaurantImageView;
@@ -54,29 +59,16 @@ public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implem
     }
 
     @Override
-    public void onClick(View view) {
-        final ArrayList<Restaurant> restaurants = new ArrayList<>();
-        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    restaurants.add(snapshot.getValue(Restaurant.class));
-                }
+    public void onItemSelected() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, R.animator.drag_scale_on);
+        set.setTarget(itemView);
+        set.start();
+    }
 
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("restaurants", Parcels.wrap(restaurants));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    @Override
+    public void onItemClear() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, R.animator.drag_scale_off);
+        set.setTarget(itemView);
+        set.start();
     }
 }
