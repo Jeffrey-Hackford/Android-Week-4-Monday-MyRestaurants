@@ -5,5 +5,5 @@ package com.epicodus.myrestaurant.util;
  */
 public interface ItemTouchHelperAdapter {
     boolean onItemMove(int fromPosition, int toPostition);
-    void onItemDismess(int position);
+    void onItemDismiss(int position);
 }
